@@ -1,10 +1,39 @@
 import { Stack } from 'expo-router';
 
+
 export default function RootLayout() {
   return (
     <Stack>
-  <Stack.Screen name="index" options={{ title: 'Home' }} />
-  <Stack.Screen name="quiz" options={{ title: 'Quiz' }} />
+      <Stack.Screen 
+        name="index" 
+        options={{ 
+          title: 'NeoDev tests',
+          headerStyle: { backgroundColor: '#FFD800' },
+          headerTintColor: '#000000', // цвет текста заголовка
+          headerTitleStyle: {
+            fontSize: 24, // Задайте нужный размер шрифта
+            letterSpacing: 1, // Задайте нужное расстояние между символами
+            paddingVertical: 10, // Задайте вертикальный отступ
+            paddingHorizontal: 16, // Задайте горизонтальный отступ
+          } as any, // Добавьте это для обхода предупреждений TS
+        }} 
+      />
+      <Stack.Screen 
+        name="quiz" 
+        options={{ 
+          title: '',
+          headerStyle: { backgroundColor: '#FFD800' },
+          headerTintColor: '#000000',
+          headerTitleStyle: {
+            fontSize: 24, // Задайте нужный размер шрифта
+            letterSpacing: 1, // Задайте нужное расстояние между символами
+            paddingVertical: 10, // Задайте вертикальный отступ
+            paddingHorizontal: 16, // Задайте горизонтальный отступ
+          } as any, // Добавьте это для обхода предупреждений TS
+        }} 
+      />
     </Stack>
   );
 }
+
+
