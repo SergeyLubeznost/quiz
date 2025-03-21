@@ -1,10 +1,10 @@
 import { Stack } from 'expo-router';
 
 
-export default function RootLayout() {
+export default function Layout() {
   return (
     <Stack>
-      <Stack.Screen 
+      {/* <Stack.Screen 
         name="index" 
         options={{ 
           title: 'NeoDev tests',
@@ -25,13 +25,14 @@ export default function RootLayout() {
           headerStyle: { backgroundColor: '#FFD800' },
           headerTintColor: '#000000',
           headerTitleStyle: {
-            fontSize: 24, // Задайте нужный размер шрифта
-            letterSpacing: 1, // Задайте нужное расстояние между символами
-            paddingVertical: 10, // Задайте вертикальный отступ
-            paddingHorizontal: 16, // Задайте горизонтальный отступ
-          } as any, // Добавьте это для обхода предупреждений TS
+            fontSize: 24, 
+            letterSpacing: 1, 
+            paddingVertical: 10, 
+            paddingHorizontal: 16,
+          } as any, 
         }} 
-      />
+      /> */}
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
     </Stack>
   );
 }

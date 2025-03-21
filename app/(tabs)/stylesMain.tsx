@@ -93,10 +93,9 @@ export const styles = StyleSheet.create({
   },
 
   wrapper: {
-    height: 300,
+    height: 400,
   },
   slide1: {
-   
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -110,5 +109,21 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  imageSlider: {
+    width: "100%",
+    height: "100%",
+    position: "relative",
+  },
+  imageText: {
+    position: "absolute",
+    fontSize:25,
+    width:195,
+    zIndex: 99,
+    color: "black", // Или любой другой цвет для контраста
+   fontWeight:700,
+    top: "20%", // Центрирование по вертикали
+    left: "20%", // Центрирование по горизонтали
+    transform: [{ translateX: -50 }, { translateY: -50 }] // Корректировка для центрирования
+  }
   
 });

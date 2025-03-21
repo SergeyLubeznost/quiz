@@ -22,9 +22,9 @@ export default function Index() {
        
       
         <TouchableOpacity style={styles.buttonGoTest}>
-        <Link style={styles.linkButton} href="/quiz">
+        
         <Text style={styles.buttonTextQuiz}>Пройти тест</Text>
-        </Link>
+        
         </TouchableOpacity>
        
       <TouchableOpacity style={styles.buttonGoForm}>
@@ -47,28 +47,28 @@ export default function Index() {
         <Text style={styles.swiperContainerTitle}>NeoDev отвечает на три самых важных вопроса профориентации:</Text>
      
         <Swiper style={styles.wrapper} showsButtons={true}>
-      <View style={styles.slide1}>
-      <Image
-          source={require("./homeImg/Rectangle 78.png")}
-          style={styles.image}
-        />
-        <Text>Слайд 1</Text>
-      </View>
-      <View style={styles.slide2}>
-      <Image
-          source={require("./homeImg/Rectangle 78.png")}
-          style={styles.image}
-        />
-        <Text>Слайд 2</Text>
-      </View>
-      <View style={styles.slide3}>
-        <Text>Слайд 37</Text>
-        <Image
-          source={require("./homeImg/Rectangle 78.png")}
-          style={styles.image}
-        />
-      </View>
-    </Swiper>
+  <View style={styles.slide1}>
+    <Image
+        source={require("./homeImg/Rectangle 78.png")}
+        style={styles.imageSlider}
+    />
+    <Text style={styles.imageText}>Что мне интересно?</Text>
+  </View>
+  <View style={styles.slide2}>
+    <Image
+        source={require("./homeImg/Rectangle 78.png")}
+        style={styles.imageSlider}
+    />
+    <Text style={styles.imageText}>В чем я силен?</Text>
+  </View>
+  <View style={styles.slide3}>
+    <Image
+        source={require("./homeImg/Rectangle 78.png")}
+        style={styles.imageSlider}
+    />
+    <Text style={styles.imageText}>Каковы перспективы выбранной профессии?</Text>
+  </View>
+</Swiper>
      
       </View>
 
