@@ -27,8 +27,8 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) =>  <Image
           style={stylesTabs.tabsImage}
                     source={color === 'yellow'
-                      ? require("./homeImg/Group 28.png") // изображение для активного состояния
-                      : require("./homeImg/Group 29.png")} // изображение для неактивного состояния}   
+                      ? require("./homeImg/Group 29.png") // изображение для активного состояния
+                      : require("./homeImg/Group 28.png")} // изображение для неактивного состояния}   
                    />,
                    
         }}
@@ -36,8 +36,13 @@ export default function TabLayout() {
       <Tabs.Screen
         name="quiz"
         options={{
-          title: 'Quiz',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
+          title: '',
+          tabBarIcon: ({ color }) => <Image
+          style={stylesTabs.tabsImage}
+                    source={color === 'yellow'
+                      ? require("./homeImg/Group 30.png") // изображение для активного состояния
+                      : require("./homeImg/Group 31.png")} // изображение для неактивного состояния}   
+                   />,
         }}
       />
     </Tabs>

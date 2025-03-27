@@ -7,6 +7,8 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
+    position:"relative",
+    paddingTop:55
   },
   containerMain: {
     display: "flex",

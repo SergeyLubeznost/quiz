@@ -1,5 +1,6 @@
 import { Text, TouchableOpacity, View, Image, ScrollView, StatusBar } from "react-native";
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+import Header from "../_components/_header";
 import { Link } from "expo-router";
 import Swiper from 'react-native-swiper';
 import {styles} from "./stylesMain";
@@ -12,6 +13,7 @@ export default function Index() {
       <ScrollView style={styles.scrollView}>
     
     <View style={styles.container}>
+    <Header />
       <View style={styles.containerMain}>
         <Image
           source={require("./homeImg/Rectangle 21.png")}
