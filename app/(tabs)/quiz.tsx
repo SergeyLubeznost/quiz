@@ -1,11 +1,15 @@
+import React, { useState } from "react";
 import { Text, View, TouchableWithoutFeedback  } from "react-native";
 import stylesQuiz from '../_styleQuizQuestions/styles/_styleQuiz'
 import Header from "../_components/_header";
+import QuizDisplay from "../_components/quizDisplay/questionDisplay";
 
 
 
 
 function StartBlock() {
+
+ 
   return (
   <View style={stylesQuiz.containerStartBlock}>
     <Text style={stylesQuiz.titleStartBlock}>тест климова</Text>
@@ -26,15 +30,26 @@ function StartBlock() {
 }
 
 export default function AboutScreen() {
+
+  const [start, setStart] = useState<boolean>(false);
+
+  function handleStartQuiz (){
+    setStart(true);
+    console.log(start);
+  }
+
   return (
     <View style={stylesQuiz.container}>
       <Header />
-      <StartBlock />
-      <TouchableWithoutFeedback onPress={() => console.log('Tapped!')}>
-      <View style={stylesQuiz.buttonStartQuiz}>
-        <Text style={stylesQuiz.textStartQuiz}>Пройти тест</Text>
-      </View>
-    </TouchableWithoutFeedback>
+      {start ? <QuizDisplay /> : <StartBlock />} {/* Переключаем компоненты в зависимости от значения start */}
+      
+      {!start && ( 
+        <TouchableWithoutFeedback onPress={handleStartQuiz}>
+          <View style={stylesQuiz.buttonStartQuiz}>
+            <Text style={stylesQuiz.textStartQuiz}>Пройти тест</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      )}
     </View>
   );
 }
