@@ -41,7 +41,7 @@ export default function AboutScreen() {
   return (
     <View style={stylesQuiz.container}>
       <Header />
-      {start ? <QuizDisplay /> : <StartBlock />} {/* Переключаем компоненты в зависимости от значения start */}
+      {start ? <QuizDisplay /> : <StartBlock />}
       
       {!start && ( 
         <TouchableWithoutFeedback onPress={handleStartQuiz}>

@@ -1,8 +1,7 @@
 import { StyleSheet } from "react-native";
 
-export const styles = StyleSheet.create({
-  containerSafe: {},
-  scrollView: {},
+ const styleMain = StyleSheet.create({
+ 
   container: {
     flex: 1,
     backgroundColor: "#fff",
@@ -129,3 +128,5 @@ export const styles = StyleSheet.create({
   }
   
 });
+
+export default styleMain;

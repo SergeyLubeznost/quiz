@@ -3,40 +3,40 @@ import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import Header from "../_components/_header";
 import { Link } from "expo-router";
 import Swiper from 'react-native-swiper';
-import {styles} from "./stylesMain";
+import styleMain from "../_styleQuizQuestions/styles/_stylesMain";
 
 export default function Index() {
   return (
 
     <SafeAreaProvider>
-    <SafeAreaView style={styles.containerSafe} edges={['top']}>
-      <ScrollView style={styles.scrollView}>
+    <SafeAreaView  edges={['top']}>
+      <ScrollView >
     
-    <View style={styles.container}>
+    <View style={styleMain.container}>
     <Header />
-      <View style={styles.containerMain}>
+      <View style={styleMain.containerMain}>
         <Image
           source={require("./homeImg/Rectangle 21.png")}
-          style={styles.image}
+          style={styleMain.image}
         />
-        <View style={styles.containerButtonHome}>
+        <View style={styleMain.containerButtonHome}>
         
        
       
-        <TouchableOpacity style={styles.buttonGoTest}>
+        <TouchableOpacity style={styleMain.buttonGoTest}>
         
-        <Text style={styles.buttonTextQuiz}>Пройти тест</Text>
+        <Text style={styleMain.buttonTextQuiz}>Пройти тест</Text>
         
         </TouchableOpacity>
        
-      <TouchableOpacity style={styles.buttonGoForm}>
-        <Text style={styles.buttonText}>Связаться</Text>
+      <TouchableOpacity style={styleMain.buttonGoForm}>
+        <Text style={styleMain.buttonText}>Связаться</Text>
       </TouchableOpacity>
           </View>
       </View>
 
-      <View style={styles.mainInfo}>
-      <Text style={styles.mainInfoText}>
+      <View style={styleMain.mainInfo}>
+      <Text style={styleMain.mainInfoText}>
       Компания NeoDev предлагает широкий спектр тестов для профориентации, специально разработанных для школьников и студентов.
        Эти тесты помогают молодым людям определить свои интересы, склонности и сильные стороны, что, в свою очередь, 
        способствует более осознанному выбору будущей профессии. Каждый тест учитывает индивидуальные особенности пользователей,
@@ -45,37 +45,37 @@ export default function Index() {
       </Text>
       </View>
      
-      <View style={styles.swiperContainer}>
-        <Text style={styles.swiperContainerTitle}>NeoDev отвечает на три самых важных вопроса профориентации:</Text>
+      <View style={styleMain.swiperContainer}>
+        <Text style={styleMain.swiperContainerTitle}>NeoDev отвечает на три самых важных вопроса профориентации:</Text>
      
-        <Swiper style={styles.wrapper} showsButtons={true}>
-  <View style={styles.slide1}>
+        <Swiper style={styleMain.wrapper} showsButtons={true}>
+  <View style={styleMain.slide1}>
     <Image
         source={require("./homeImg/Rectangle 78.png")}
-        style={styles.imageSlider}
+        style={styleMain.imageSlider}
     />
-    <Text style={styles.imageText}>Что мне интересно?</Text>
+    <Text style={styleMain.imageText}>Что мне интересно?</Text>
   </View>
-  <View style={styles.slide2}>
+  <View style={styleMain.slide2}>
     <Image
         source={require("./homeImg/Rectangle 78.png")}
-        style={styles.imageSlider}
+        style={styleMain.imageSlider}
     />
-    <Text style={styles.imageText}>В чем я силен?</Text>
+    <Text style={styleMain.imageText}>В чем я силен?</Text>
   </View>
-  <View style={styles.slide3}>
+  <View style={styleMain.slide3}>
     <Image
         source={require("./homeImg/Rectangle 78.png")}
-        style={styles.imageSlider}
+        style={styleMain.imageSlider}
     />
-    <Text style={styles.imageText}>Каковы перспективы выбранной профессии?</Text>
+    <Text style={styleMain.imageText}>Каковы перспективы выбранной профессии?</Text>
   </View>
 </Swiper>
      
       </View>
 
       
-      <Text style={styles.text}>Home screen</Text>
+      <Text style={styleMain.text}>Home screen</Text>
     
     </View>
 
