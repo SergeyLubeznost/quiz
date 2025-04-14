@@ -1,4 +1,4 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+
 import { StyleSheet } from "react-native";
 import { Tabs } from 'expo-router';
 import {Image } from "react-native";
@@ -42,6 +42,18 @@ export default function TabLayout() {
                     source={color === 'yellow'
                       ? require("./homeImg/Group 30.png") // изображение для активного состояния
                       : require("./homeImg/Group 31.png")} // изображение для неактивного состояния}   
+                   />,
+        }}
+      />
+      <Tabs.Screen
+        name="resultPage"
+        options={{
+          title: '',
+          tabBarIcon: ({ color }) => <Image
+          style={stylesTabs.tabsImage}
+                    source={color === 'yellow'
+                      ? require("./homeImg/Group 33.png") // изображение для активного состояния
+                      : require("./homeImg/Group 32.png")} // изображение для неактивного состояния}   
                    />,
         }}
       />

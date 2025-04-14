@@ -12,14 +12,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAnswer, nextQuestion, resetQuiz} from "../../store/slice/quizSlice";
 import { RootState } from "../../store/store";
 
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
 export default function QuizDisplay() {
+  type RootStackParamList = {
+    resultPage: undefined;
+    // Добавьте другие экраны при необходимости
+  };
+
+  type QuizScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'resultPage'
+>;
+
+  const navigation = useNavigation<QuizScreenNavigationProp>(); // Получаем navigation
+  const handlePress = () => {
+    navigation.navigate('resultPage'); 
+  };
+
   const dispatch = useDispatch();
   const { currentQuestionIndex, answers } = useSelector(
     (state: RootState) => state.quiz
   );
 
   const handleOptionPress = (value: string) => {
-    dispatch(setAnswer({ questionId: currentQuestionIndex, answer: value })); // Добавляем ответ в хранилище
+    dispatch(setAnswer({ questionId: currentQuestionIndex +1, answer: value })); // Добавляем ответ в хранилище
     dispatch(nextQuestion()); // Переходим к следующему вопросу
   };
 
@@ -59,7 +77,7 @@ export default function QuizDisplay() {
           <TouchableWithoutFeedback style={styles.buttonAgainTest} >
             <Text style={styles.buttonAgainTestText}  onPress={() => handleReset()}>Пройти заново</Text>
           </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback style={styles.buttonToResult}>
+          <TouchableWithoutFeedback onPress={handlePress} style={styles.buttonToResult}>
             <Text style={styles.buttonToResultText}>
               Перейти на страницу результатов
             </Text>
