@@ -88,8 +88,8 @@ export default function ResaltPage() {
               ))}
             </View>
 
-            <View>
-              <Text>Описание результатов</Text>
+            <View style={resultDisplay.discriptionContainer}>
+              <Text style={resultDisplay.discTitle}>Описание результатов</Text>
 
               {matchedProfessions.map((item) => (
                 <View style={resultDisplay.containerCard}  key={item.scale}>
@@ -98,14 +98,20 @@ export default function ResaltPage() {
                     style={{ width: 100, height: 80 }}
                   />
                   <Text style={resultDisplay.titleCard}>{item.scale}</Text>
-                  <View style={resultDisplay.titleCard}>
+                  <View style={resultDisplay.orderContainer}>
                   {item.professions.map((it, index) => (
-        <Text key={index}>&bull; {it}</Text>
+        <Text key={index} style={resultDisplay.orderProfessions}>&bull; {it}</Text>
       ))}
                   </View>
-                  <Text>{item.description}</Text>
+                  <Text style={resultDisplay.discription}>{item.description}</Text>
                 </View>
               ))}
+
+<TouchableOpacity style={resultDisplay.buttonFormToGo}>
+        
+        <Text style={resultDisplay.buttonTextFormToGo}>Записаться на консультацию профориентолога</Text>
+        
+        </TouchableOpacity>
             </View>
           </View>
         </ScrollView>
