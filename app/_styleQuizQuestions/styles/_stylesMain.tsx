@@ -16,6 +16,8 @@ import { StyleSheet } from "react-native";
   },
   text: {
     color: "#fff",
+    height:75
+
   },
   linkButton: {
     width: "100%",
@@ -90,11 +92,13 @@ import { StyleSheet } from "react-native";
     textAlign:"center",
     letterSpacing:2,
     fontWeight:"700",
-    marginTop:"5%"
+    marginTop:"5%",
+    marginBottom:20
   },
 
   wrapper: {
     height: 400,
+   
   },
   slide1: {
     alignItems: 'center',
@@ -123,8 +127,8 @@ import { StyleSheet } from "react-native";
     color: "black", // Или любой другой цвет для контраста
    fontWeight:700,
     top: 55, // Центрирование по вертикали
-    left: 60, // Центрирование по горизонтали
-    transform: [{ translateX: -50 }, { translateY: -50 }] // Корректировка для центрирования
+    left: 30, // Центрирование по горизонтали
+   // transform: [{ translateX: -50 }, { translateY: -50 }] // Корректировка для центрирования
   }
   
 });

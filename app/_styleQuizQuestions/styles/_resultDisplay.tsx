@@ -4,14 +4,13 @@ const stylesResult = StyleSheet.create({
   resultContainerDisplay: {
     alignItems: "center", // выравнивание по центру, если это необходимо
     paddingTop: 80,
-   
   },
-  discTitle:{
-marginTop:43,
-marginBottom:20,
-fontWeight:"bold",
-marginLeft:"auto",
-marginRight:"auto"
+  discTitle: {
+    marginTop: 43,
+    marginBottom: 20,
+    fontWeight: "bold",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
   resultContainer: {
     height: 207,
@@ -57,14 +56,14 @@ marginRight:"auto"
     color: "transparent",
   },
 
-  discriptionContainer:{
-    width:"100%",
-    justifyContent:"center",
-    alignItems:"center"
+  discriptionContainer: {
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   containerCard: {
-    boxSizing:"border-box",
+    boxSizing: "border-box",
     width: "90%",
     borderWidth: 1,
     borderColor: "#3C474C",
@@ -72,42 +71,52 @@ marginRight:"auto"
     justifyContent: "center",
     alignItems: "center",
     padding: 10,
-    marginBottom:40
+    marginBottom: 40,
   },
   titleCard: {
-    fontSize:12,
-    fontWeight:"bold",
-    marginBottom:20,
-    marginTop:20,
+    fontSize: 12,
+    fontWeight: "bold",
+    marginBottom: 20,
+    marginTop: 20,
   },
-  orderContainer:{
+  orderContainer: {
+    width: "100%",
+  },
+  orderProfessions: {
+    width: "50%",
+    marginRight: "50%",
+    color: "#3C474C",
+  },
+  discription: {
+    fontSize: 12,
+    lineHeight: 25,
+  },
+  buttonFormToGo: {
+    width: "90%",
+    height: 58,
+    marginLeft: "auto",
+    marginRight: "auto",
+    backgroundColor: "#FFD800",
+    marginBottom: 90,
+    borderRadius: 10,
+    borderWidth: 1,
+    textAlign: "center",
+  },
+  buttonTextFormToGo: {
+    margin: "auto",
+    fontSize: 12,
+    fontWeight: "bold",
+  },
+  blockAbsolute:{
+    justifyContent: "center",
+    alignItems: "center", // выравнивание по центру, если это необходимо
     width:"100%",
+    height:100,
+   
+    backgroundColor:"#FFD800"
+  },
+  blockAbsoluteTitle:{
 
-  },
-  orderProfessions:{
-    width:"50%",
-  marginRight:"50%",
-  color:"#3C474C"
-  },
-  discription:{
-    fontSize:12,
-   lineHeight:25
-  },
-  buttonFormToGo:{
-    width:"90%",
-height:58,
-marginLeft:"auto",
-marginRight:"auto",
-backgroundColor:"#FFD800",
-marginBottom:60,
-borderRadius:10,
-borderWidth:1,
-textAlign:"center"
-  },
-  buttonTextFormToGo:{
-    margin:"auto",
-    fontSize:12,
-    fontWeight:"bold"
   }
 });
 

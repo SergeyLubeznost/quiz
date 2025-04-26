@@ -72,7 +72,7 @@ export default function QuizDisplay() {
       ) : (
         <View>
           <Text style={styles.finalMessage}>
-            Спасибо за участие! Ваши ответы: {JSON.stringify(answers)}
+            Спасибо за участие! 
           </Text>
           <TouchableWithoutFeedback style={styles.buttonAgainTest} >
             <Text style={styles.buttonAgainTestText}  onPress={() => handleReset()}>Пройти заново</Text>

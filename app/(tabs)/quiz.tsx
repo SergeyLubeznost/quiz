@@ -3,6 +3,7 @@ import { Text, View, TouchableWithoutFeedback  } from "react-native";
 import stylesQuiz from '../_styleQuizQuestions/styles/_styleQuiz'
 import Header from "../_components/_header";
 import QuizDisplay from "../_components/quizDisplay/questionDisplay";
+import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 
 
@@ -11,6 +12,7 @@ function StartBlock() {
 
  
   return (
+    
   <View style={stylesQuiz.containerStartBlock}>
     <Text style={stylesQuiz.titleStartBlock}>тест климова</Text>
     <Text style={stylesQuiz.textStartBlock}>
@@ -26,6 +28,7 @@ function StartBlock() {
       будущую жизнь и карьеру.
     </Text>
   </View>
+
   )
 }
 
@@ -39,6 +42,7 @@ export default function AboutScreen() {
   }
 
   return (
+
     <View style={stylesQuiz.container}>
       <Header />
       {start ? <QuizDisplay /> : <StartBlock />}
@@ -51,6 +55,7 @@ export default function AboutScreen() {
         </TouchableWithoutFeedback>
       )}
     </View>
+
   );
 }
 

@@ -5,11 +5,35 @@ import { Link } from "expo-router";
 import Swiper from 'react-native-swiper';
 import styleMain from "../_styleQuizQuestions/styles/_stylesMain";
 
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
 export default function Index() {
+
+ type RootStackParamList = {
+    quiz: undefined;
+    formScreen: undefined;
+    // Добавьте другие экраны при необходимости
+  };
+
+  type QuizScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'quiz', "formScreen"
+>;
+
+  const navigation = useNavigation<QuizScreenNavigationProp>(); // Получаем navigation
+  const linkToTest = () => {
+    navigation.navigate('quiz'); 
+  };
+  const linkToSend = () => {
+    navigation.navigate('formScreen'); 
+  };
+
+
   return (
 
     <SafeAreaProvider>
-    <SafeAreaView  edges={['top']}>
+    {/* <SafeAreaView  edges={['top']}> */}
       <ScrollView >
     
     <View style={styleMain.container}>
@@ -23,13 +47,13 @@ export default function Index() {
         
        
       
-        <TouchableOpacity style={styleMain.buttonGoTest}>
+        <TouchableOpacity style={styleMain.buttonGoTest} onPress={linkToTest}>
         
         <Text style={styleMain.buttonTextQuiz}>Пройти тест</Text>
         
         </TouchableOpacity>
        
-      <TouchableOpacity style={styleMain.buttonGoForm}>
+      <TouchableOpacity style={styleMain.buttonGoForm} onPress={linkToSend}>
         <Text style={styleMain.buttonText}>Связаться</Text>
       </TouchableOpacity>
           </View>
@@ -80,7 +104,7 @@ export default function Index() {
     </View>
 
     </ScrollView>
-    </SafeAreaView>
+    {/* </SafeAreaView> */}
   </SafeAreaProvider>
   
   );

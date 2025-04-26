@@ -14,10 +14,30 @@ import { useDispatch, useSelector } from "react-redux";
 import resultDisplay from "../_styleQuizQuestions/styles/_resultDisplay";
 import answerKeys from "../_components/dataFolder/professions";
 
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
 export default function ResaltPage() {
   const { currentQuestionIndex, answers } = useSelector(
     (state: RootState) => state.quiz
   );
+
+  type RootStackParamList = {
+   
+    formScreen: undefined;
+    // Добавьте другие экраны при необходимости
+  };
+
+  type QuizScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+   "formScreen"
+>;
+
+  const navigation = useNavigation<QuizScreenNavigationProp>(); // Получаем navigation
+
+  const linkToSend = () => {
+    navigation.navigate('formScreen'); 
+  };
 
   const images: { [key: string]: any } = {
     "человек – техника": require("../_components/dataFolder/image/человек-техника.png"),
@@ -66,56 +86,74 @@ export default function ResaltPage() {
   console.log("Matched Professions:", matchedProfessions);
   return (
     <SafeAreaProvider>
-      <SafeAreaView edges={["top"]}>
+      {/* <SafeAreaView edges={["top"]}> */}
         <ScrollView>
           <View style={resultDisplay.resultContainerDisplay}>
             <Header />
-            <View style={resultDisplay.resultContainer}>
-              {results.map((result) => (
-                <View key={result.title} style={resultDisplay.resultScaleCon}>
-                  <View style={resultDisplay.titleScaleContainer}>
-                    <Text style={resultDisplay.titleScale}>{result.title}</Text>
-                  </View>
+            {answers.length === 0 ? (
+              <View style={resultDisplay.blockAbsolute}>
+                <Text style={resultDisplay.blockAbsoluteTitle}>
+                  Пройдите тест, чтобы открыть страницу результатов
+                </Text>
+              </View>
+            ) : (
+              <View style={resultDisplay.resultContainer}>
+                {results.map((result) => (
+                  <View key={result.title} style={resultDisplay.resultScaleCon}>
+                    <View style={resultDisplay.titleScaleContainer}>
+                      <Text style={resultDisplay.titleScale}>
+                        {result.title}
+                      </Text>
+                    </View>
 
-                  <View style={resultDisplay.countScaleContainer}>
-                    {result.answers.map((answer) => (
-                      <View key={answer} style={resultDisplay.countBlock}>
-                        <Text style={resultDisplay.count}>{answer}</Text>
-                      </View>
-                    ))}
+                    <View style={resultDisplay.countScaleContainer}>
+                      {result.answers.map((answer) => (
+                        <View key={answer} style={resultDisplay.countBlock}>
+                          <Text style={resultDisplay.count}>{answer}</Text>
+                        </View>
+                      ))}
+                    </View>
                   </View>
-                </View>
-              ))}
-            </View>
-
+                ))}
+              </View>
+            )}
+ 
             <View style={resultDisplay.discriptionContainer}>
-              <Text style={resultDisplay.discTitle}>Описание результатов</Text>
+            {answers.length === 0 ? (null) : (
+              <Text style={resultDisplay.discTitle}>Описание результатов</Text>)}
 
               {matchedProfessions.map((item) => (
-                <View style={resultDisplay.containerCard}  key={item.scale}>
+                <View style={resultDisplay.containerCard} key={item.scale}>
                   <Image
                     source={images[item.scale]}
                     style={{ width: 100, height: 80 }}
                   />
                   <Text style={resultDisplay.titleCard}>{item.scale}</Text>
                   <View style={resultDisplay.orderContainer}>
-                  {item.professions.map((it, index) => (
-        <Text key={index} style={resultDisplay.orderProfessions}>&bull; {it}</Text>
-      ))}
+                    {item.professions.map((it, index) => (
+                      <Text key={index} style={resultDisplay.orderProfessions}>
+                        &bull; {it}
+                      </Text>
+                    ))}
                   </View>
-                  <Text style={resultDisplay.discription}>{item.description}</Text>
+                  <Text style={resultDisplay.discription}>
+                    {item.description}
+                  </Text>
                 </View>
               ))}
 
-<TouchableOpacity style={resultDisplay.buttonFormToGo}>
-        
-        <Text style={resultDisplay.buttonTextFormToGo}>Записаться на консультацию профориентолога</Text>
-        
-        </TouchableOpacity>
+{answers.length === 0 ? (null) : (
+              <TouchableOpacity style={resultDisplay.buttonFormToGo} onPress={linkToSend}>
+              <Text style={resultDisplay.buttonTextFormToGo} >
+                Записаться на консультацию профориентолога
+              </Text>
+            </TouchableOpacity>)}
+
+             
             </View>
           </View>
         </ScrollView>
-      </SafeAreaView>
+      {/* </SafeAreaView> */}
     </SafeAreaProvider>
   );
 }
