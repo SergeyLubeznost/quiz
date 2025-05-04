@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+//import React, { useState } from "react";
 import {
   Text,
   View,
@@ -42,7 +42,7 @@ export default function QuizDisplay() {
   };
 
   const handleReset = () => {
-   
+   console.log("click")
     dispatch(resetQuiz());
   };
 
@@ -74,9 +74,11 @@ export default function QuizDisplay() {
           <Text style={styles.finalMessage}>
             Спасибо за участие! 
           </Text>
-          <TouchableWithoutFeedback style={styles.buttonAgainTest} >
-            <Text style={styles.buttonAgainTestText}  onPress={() => handleReset()}>Пройти заново</Text>
+          
+          <TouchableWithoutFeedback  onPress={() => handleReset()} style={styles.buttonAgainTest} >
+            <Text style={styles.buttonAgainTestText} >Пройти заново</Text>
           </TouchableWithoutFeedback>
+
           <TouchableWithoutFeedback onPress={handlePress} style={styles.buttonToResult}>
             <Text style={styles.buttonToResultText}>
               Перейти на страницу результатов
