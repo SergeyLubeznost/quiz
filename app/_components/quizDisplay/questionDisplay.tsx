@@ -6,7 +6,8 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
-import dataQuestion, { Question } from "../dataFolder/data";
+import React, { useState,useEffect } from "react";
+//import dataQuestion, { Question } from "../dataFolder/data";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setAnswer, nextQuestion, resetQuiz} from "../../store/slice/quizSlice";
@@ -15,7 +16,27 @@ import { RootState } from "../../store/store";
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-export default function QuizDisplay() {
+// Определите типы для Option и QuestionNum
+interface Option {
+  text: string;
+  value: string;
+}
+
+interface QuestionNum {
+  id: number;
+  question: string;
+  options: Option[]; // Исправлено: options - массив
+}
+
+interface QuizDisplayProps {
+  arr: QuestionNum[];  // Проп arr - массив QuestionNum объектов
+}
+
+export default function QuizDisplay( {arr}: QuizDisplayProps ) {
+
+ 
+
+
   type RootStackParamList = {
     resultPage: undefined;
     // Добавьте другие экраны при необходимости
@@ -46,8 +67,8 @@ export default function QuizDisplay() {
     dispatch(resetQuiz());
   };
 
-  const currentQuestion: Question | undefined =
-    dataQuestion[currentQuestionIndex];
+  const currentQuestion: QuestionNum | undefined =
+    arr[currentQuestionIndex];
 
   return (
     <View style={styles.container}>
