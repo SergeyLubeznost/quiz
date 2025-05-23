@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import React, { useState,useEffect } from "react";
 //import dataQuestion, { Question } from "../dataFolder/data";
+import * as Progress from 'react-native-progress';
 
 import { useDispatch, useSelector } from "react-redux";
 import { setAnswer, nextQuestion, resetQuiz} from "../../store/slice/quizSlice";
@@ -70,6 +71,10 @@ export default function QuizDisplay( {arr}: QuizDisplayProps ) {
   const currentQuestion: QuestionNum | undefined =
     arr[currentQuestionIndex];
 
+    const totalQuestions = arr.length
+
+     const progress = (currentQuestionIndex + 1) / totalQuestions;
+
   return (
     <View style={styles.container}>
       {currentQuestion ? (
@@ -89,6 +94,13 @@ export default function QuizDisplay( {arr}: QuizDisplayProps ) {
               </View>
             ))}
           </View>
+          
+          <Progress.Bar style={styles.progress} progress={progress} width={370} height={18}
+           borderColor="#FFD800" // Цвет границы
+        color="#FFD800" // Цвет заполняемой шкалы
+       
+        borderWidth={1} // Толщина границы
+          />
         </View>
       ) : (
         <View>
@@ -184,4 +196,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     fontSize: 18,
   },
+  progress:{
+    marginTop:30
+  }
 });

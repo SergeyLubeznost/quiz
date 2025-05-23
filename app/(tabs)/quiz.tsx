@@ -4,6 +4,7 @@ import stylesQuiz from '../_styleQuizQuestions/styles/_styleQuiz'
 import Header from "../_components/_header";
 import QuizDisplay from "../_components/quizDisplay/questionDisplay";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import LoaderKit from 'react-native-loader-kit'
 
 
 
